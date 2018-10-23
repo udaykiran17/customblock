@@ -1,0 +1,4 @@
+name = MyCustomblock
+description = This module provides a custom block .
+
+core = 7.x

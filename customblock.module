@@ -1,0 +1,27 @@
+
+<?php
+
+  function customblock_block_info() {
+    return array(
+      'user_profile' => array(
+        'info' => 'User Profile Block',
+        'cache' => DRUPAL_NO_CACHE
+      )
+    );
+  }
+
+  function customblock_block_view($delta = '') {
+    $block = array();
+
+    if ($delta == 'user_profile') {
+      global $user;
+      $account = user_load($user->uid);
+      $user->name;
+      $profile = "Users First Name-".$account->field_first_name['und'][0]['value']
+                   . "Users Last Name-".$account->field_last_name['und'][0]['value'];
+      $block['content'] =$profile;
+    }
+
+    return $block;
+  }
+?>
